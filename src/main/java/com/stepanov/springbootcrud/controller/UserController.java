@@ -2,7 +2,6 @@ package com.stepanov.springbootcrud.controller;
 
 import com.stepanov.springbootcrud.entity.User;
 import com.stepanov.springbootcrud.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +12,11 @@ public class UserController {
 
     private final UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("")
+    @GetMapping
     public String listEmployees(Model model) {
 
         model.addAttribute("users", userService.findAll());
@@ -50,7 +48,7 @@ public class UserController {
         return "users/user-form";
     }
 
-    @GetMapping("/delete")
+    @DeleteMapping("/delete")
     public String delete(@RequestParam("userId") int id) {
         userService.deleteById(id);
 
