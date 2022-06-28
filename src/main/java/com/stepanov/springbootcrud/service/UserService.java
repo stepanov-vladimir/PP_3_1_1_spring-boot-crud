@@ -1,6 +1,6 @@
 package com.stepanov.springbootcrud.service;
 
-import com.stepanov.springbootcrud.entity.User;
+import com.stepanov.springbootcrud.model.User;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public interface UserService {
 
     User findById(int id);
 
-    void save(User employee);
+    void save(User user);
 
     void deleteById(int id);
 }

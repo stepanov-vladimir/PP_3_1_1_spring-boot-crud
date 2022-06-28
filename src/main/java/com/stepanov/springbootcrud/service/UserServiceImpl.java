@@ -1,8 +1,7 @@
 package com.stepanov.springbootcrud.service;
 
 import com.stepanov.springbootcrud.dao.UserRepository;
-import com.stepanov.springbootcrud.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.stepanov.springbootcrud.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
