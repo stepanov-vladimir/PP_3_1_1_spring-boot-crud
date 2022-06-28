@@ -17,15 +17,15 @@ public class UserController {
     }
 
     @GetMapping
-    public String listEmployees(Model model) {
+    public String listAllUsers(Model model) {
 
         model.addAttribute("users", userService.findAll());
 
         return "/users/list-users";
     }
 
-    @GetMapping("/showFormForAdd")
-    public String showFormForAdd(Model model) {
+    @GetMapping("/new")
+    public String showFormForNewUser(Model model) {
 
         model.addAttribute("user", new User());
 
@@ -40,7 +40,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @PutMapping("/showFormForUpdate")
+    @GetMapping("/update")
     public String showFormForUpdate(@RequestParam("userId") int id, Model model) {
 
         model.addAttribute(userService.findById(id));
@@ -48,8 +48,9 @@ public class UserController {
         return "users/user-form";
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping(value = "/delete")
     public String delete(@RequestParam("userId") int id) {
+
         userService.deleteById(id);
 
         return "redirect:/users";
